@@ -5,7 +5,7 @@ import LinearGradient from "react-native-linear-gradient";
 const Header = (props) => {
   return (
     <View style={styles.header}>
-      <LinearGradient>
+      <LinearGradient colors={["#4c669f", "#3b5998", "#192f6a"]}>
         <Text style={styles.text}>{props.title}</Text>
       </LinearGradient>
     </View>
