@@ -1,10 +1,14 @@
-import Reac from "react";
-import { Text, StyleSheet, View } from "react-native";
+import React from "react";
+import { Text, StyleSheet, View, TextInput } from "react-native";
 
 const StartGameScreen = (props) => {
   return (
     <View style={styles.screen}>
       <Text>The Start Game Screen</Text>
+      <View>
+        <Text>Select A Number</Text>
+        <TextInput />
+      </View>
     </View>
   );
 };
