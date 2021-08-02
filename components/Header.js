@@ -1,13 +1,10 @@
 import React from "react";
 import { View, StyleSheet, Text } from "react-native";
-import LinearGradient from "react-native-linear-gradient";
 
 const Header = (props) => {
   return (
     <View style={styles.header}>
-      <LinearGradient colors={["#4c669f", "#3b5998", "#192f6a"]}>
-        <Text style={styles.text}>{props.title}</Text>
-      </LinearGradient>
+      <Text style={styles.text}>{props.title}</Text>
     </View>
   );
 };
