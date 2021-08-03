@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, StyleSheet, View, TextInput } from "react-native";
+import { Text, StyleSheet, View, TextInput, Button } from "react-native";
 
 const StartGameScreen = (props) => {
   return (
@@ -13,6 +13,10 @@ const StartGameScreen = (props) => {
           onChangeText={props.onTextChange}
           placeholder="Enter a number"
         />
+        <View>
+          <Button title="Reset" />
+          <Button title="Confirm" />
+        </View>
       </View>
     </View>
   );
