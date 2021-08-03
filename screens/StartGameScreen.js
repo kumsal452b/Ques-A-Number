@@ -12,10 +12,11 @@ const StartGameScreen = (props) => {
           style={styles.TextInput}
           onChangeText={props.onTextChange}
           placeholder="Enter a number"
+          style={styles.inout}
         />
         <View style={styles.buttonContainer}>
-          <Button title="Reset" />
-          <Button title="Confirm" />
+          <Button title="Reset" style={styles.button} />
+          <Button title="Confirm" style={styles.button} />
         </View>
       </View>
     </View>
@@ -24,23 +25,32 @@ const StartGameScreen = (props) => {
 
 const styles = StyleSheet.create({
   screen: {
-    flex: 1,
     padding: 10,
     alignItems: "center",
-    backgroundColor: "cyan",
   },
-  TextInput: {
-    width: "100%",
-    height: 80,
-    backgroundColor: "white",
+  inout: {
     borderBottomColor: "black",
     borderWidth: 1,
+    marginTop: 30,
   },
-  buttonContainer: {},
+
+  buttonContainer: {
+    flexDirection: "row",
+    width: "100%",
+    justifyContent: "space-between",
+    paddingHorizontal: 5,
+  },
   title: {
     fontSize: 20,
   },
-  inputContainer: {},
+  inputContainer: {
+    width: 300,
+    maxWidth: "80%",
+    alignItems: "center",
+  },
+  button: {
+    width: 100,
+  },
 });
 
 export default StartGameScreen;
