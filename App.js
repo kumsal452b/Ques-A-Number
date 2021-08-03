@@ -1,18 +1,19 @@
 import { StatusBar } from "expo-status-bar";
-import React from "react";
+import React, { useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import Header from "./components/Header";
 import StartGameScreen from "./screens/StartGameScreen";
 
 export default function App() {
   const title = "Merhaba";
+  const [value, onTextChange] = useState("");
   return (
     <View style={styles.container}>
       <View>
         <Header title={title} />
       </View>
       <View>
-        <StartGameScreen />
+        <StartGameScreen value={value} onTextChange={onTextChange} />
       </View>
     </View>
   );

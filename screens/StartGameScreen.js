@@ -7,7 +7,12 @@ const StartGameScreen = (props) => {
       <Text>The Start Game Screen</Text>
       <View>
         <Text>Select A Number</Text>
-        <TextInput />
+        <TextInput
+          value={props.value}
+          style={styles.TextInput}
+          onChangeText={props.onTextChange}
+          placeholder="Enter a number"
+        />
       </View>
     </View>
   );
@@ -18,6 +23,14 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 10,
     alignItems: "center",
+    backgroundColor: "cyan",
+  },
+  TextInput: {
+    width: "100%",
+    height: 80,
+    backgroundColor: "white",
+    borderBottomColor: "black",
+    borderWidth: 1,
   },
 });
 
