@@ -12,7 +12,7 @@ const StartGameScreen = (props) => {
           style={styles.TextInput}
           onChangeText={props.onTextChange}
           placeholder="Enter a number"
-          style={styles.inout}
+          style={styles.input}
         />
         <View style={styles.buttonContainer}>
           <Button title="Reset" style={styles.button} />
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     padding: 10,
     alignItems: "center",
   },
-  inout: {
+  input: {
     borderBottomColor: "black",
     borderWidth: 1,
     marginTop: 30,
@@ -47,6 +47,12 @@ const styles = StyleSheet.create({
     width: 300,
     maxWidth: "80%",
     alignItems: "center",
+    shadowColor: "black",
+    shadowOpacity: 0.26,
+    shadowOffset: { width: 0, height: 0 },
+    shadowRadius: 6,
+    backgroundColor: "white",
+    elevation: 10,
   },
   button: {
     width: 100,
