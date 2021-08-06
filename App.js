@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import Header from "./components/Header";
 import StartGameScreen from "./screens/StartGameScreen";
-import WebView from "react-native-webview";
 
 export default function App() {
   const title = "Merhaba";
