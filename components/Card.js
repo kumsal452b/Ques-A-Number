@@ -1,11 +1,11 @@
 import React from "react";
 import { Text, View, Textinput, Stylesheet } from "react-native";
 
-const Card=(props)=>{
-
+const Card = (props) => {
+  return <View style={styles.Card}>props.children</View>;
 };
-const styles=Stylesheet.create({
-    card:{
+const styles = Stylesheet.create({
+  card: {
     width: 300,
     maxWidth: "80%",
     alignItems: "center",
