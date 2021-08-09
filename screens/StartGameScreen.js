@@ -1,5 +1,12 @@
 import React from "react";
-import { Text, StyleSheet, View, TextInput, Button } from "react-native";
+import {
+  Text,
+  StyleSheet,
+  View,
+  TextInput,
+  Button,
+  Touchable,
+} from "react-native";
 import Card from "../components/Card";
 import color from "../constant/color";
 const StartGameScreen = (props) => {
@@ -17,21 +24,12 @@ const StartGameScreen = (props) => {
         />
         <View style={styles.buttonContainer}>
           <View style={styles.button}>
-            <Button
-              buttonStyle={{ backgroundColor: "black", color: "black" }}
-              titleStyle={{
-                color: "black",
-              }}
-            >
+            <Touchable>
               <Text color={"black"}>Deneme</Text>
-            </Button>
+            </Touchable>
           </View>
           <View style={styles.button}>
-            <Button
-              title="Confirm"
-              style={styles.button}
-              color={color.accent}
-            />
+            <Touchable style={styles.button} color={color.accent}></Touchable>
           </View>
         </View>
       </Card>
