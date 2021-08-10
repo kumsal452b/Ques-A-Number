@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Text,
   StyleSheet,
@@ -6,10 +6,12 @@ import {
   TextInput,
   Button,
   Touchable,
+  TouchableOpacity,
 } from "react-native";
 import Card from "../components/Card";
 import color from "../constant/color";
 const StartGameScreen = (props) => {
+  const [isActive, setIsActive] = useState(false);
   return (
     <View style={styles.screen}>
       <Text style={styles.title}>The Start Game Screen</Text>
@@ -22,10 +24,21 @@ const StartGameScreen = (props) => {
           placeholder="Enter a number"
           style={styles.input}
         />
-        <Touchable></Touchable>
+
         <View style={styles.buttonContainer}>
-          <View></View>
-          <View></View>
+          <View>
+            <TouchableOpacity
+              style={styles.button}
+              onTo={console.log("deneme")}
+            >
+              <Text style={{ color: color.primary }}>Deneme</Text>
+            </TouchableOpacity>
+          </View>
+          <View>
+            <TouchableOpacity style={styles.button1}>
+              <Text style={{ color: color.accent }}>Deneme</Text>
+            </TouchableOpacity>
+          </View>
         </View>
       </Card>
     </View>
@@ -43,7 +56,7 @@ const styles = StyleSheet.create({
     marginTop: 30,
     width: "95%",
     paddingBottom: 3,
-    marginBottom: 5,
+    marginBottom: 15,
   },
 
   buttonContainer: {
@@ -51,6 +64,7 @@ const styles = StyleSheet.create({
     width: "100%",
     justifyContent: "space-between",
     paddingHorizontal: 5,
+    marginBottom: 10,
   },
   title: {
     fontSize: 20,
@@ -63,13 +77,23 @@ const styles = StyleSheet.create({
   },
   button1: {
     width: 100,
+    height: 40,
+    borderRadius: 10,
+    borderColor: color.accent,
+    borderWidth: 2,
+    color: color.accent,
+    alignItems: "center",
+    justifyContent: "center",
   },
   button: {
     width: 100,
+    height: 40,
     borderRadius: 10,
     borderColor: color.primary,
     borderWidth: 2,
     color: color.primary,
+    alignItems: "center",
+    justifyContent: "center",
   },
 });
 
