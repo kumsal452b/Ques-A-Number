@@ -22,15 +22,10 @@ const StartGameScreen = (props) => {
           placeholder="Enter a number"
           style={styles.input}
         />
+        <Touchable></Touchable>
         <View style={styles.buttonContainer}>
-          <View style={styles.button}>
-            <Touchable>
-              <Text color={"black"}>Deneme</Text>
-            </Touchable>
-          </View>
-          <View style={styles.button}>
-            <Touchable style={styles.button} color={color.accent}></Touchable>
-          </View>
+          <View></View>
+          <View></View>
         </View>
       </Card>
     </View>
