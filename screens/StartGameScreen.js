@@ -9,6 +9,7 @@ import {
   TouchableOpacity,
   TouchableWithoutFeedback,
   Keyboard,
+  Alert,
 } from "react-native";
 import Card from "../components/Card";
 import color from "../constant/color";
@@ -17,14 +18,31 @@ import Input from "../components/Input";
 const StartGameScreen = (props) => {
   const [isActive, setIsActive] = useState(false);
   const [enteredValue, setEnteredValue] = useState("");
+  const [confirmed, setConfirmed] = useState(false);
+  const [selectedNumber, setSelectedNumber] = useState();
 
   const InputValueHandler = (inputValue) => {
     setEnteredValue(inputValue.replace(/[^0-9]/g, ""));
+    setConfirmed(false);
   };
 
   const resetInputHandler = () => {
     setEnteredValue("");
   };
+  const confirmedHandler = () => {
+    const choosenNumber = parseInt(enteredValue);
+    if (choosenNumber === NaN || choosenNumber < 0 || choosenNumber > 99) {
+      return;
+    }
+    setConfirmed(true);
+    setSelectedNumber(choosenNumber);
+    setEnteredValue("");
+  };
+
+  let confirmedOutput;
+  if (confirmed) {
+    confirmedOutput = <Text>Choosen Number:{selectedNumber}</Text>;
+  }
 
   return (
     <TouchableWithoutFeedback
@@ -55,12 +73,16 @@ const StartGameScreen = (props) => {
               </TouchableOpacity>
             </View>
             <View>
-              <TouchableOpacity style={styles.button1}>
+              <TouchableOpacity
+                style={styles.button1}
+                onPress={confirmedHandler}
+              >
                 <Text style={{ color: color.accent }}>Confirm</Text>
               </TouchableOpacity>
             </View>
           </View>
         </Card>
+        {confirmedOutput}
       </View>
     </TouchableWithoutFeedback>
   );
