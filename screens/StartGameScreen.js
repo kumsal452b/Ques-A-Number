@@ -17,7 +17,7 @@ const StartGameScreen = (props) => {
   const [enteredValue, setEnteredValue] = useState("");
 
   const InputValueHandler = (inputValue) => {
-    setEnteredValue(inputValue);
+    setEnteredValue(inputValue.replace(/[^0-9]/g, ""));
   };
 
   return (
