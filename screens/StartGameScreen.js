@@ -16,6 +16,8 @@ const StartGameScreen = (props) => {
   const [isActive, setIsActive] = useState(false);
   const [enteredValue, setEnteredValue] = useState("");
 
+  const InputValueHandler = (inputValue) => {};
+
   return (
     <View style={styles.screen}>
       <Text style={styles.title}>The Start Game Screen</Text>
@@ -27,6 +29,8 @@ const StartGameScreen = (props) => {
           blurOnSubmit
           autoCapitalize="none"
           maxLength={2}
+          onChangeText={InputValueHandler}
+          value={enteredValue}
         />
         <View style={styles.buttonContainer}>
           <View>
