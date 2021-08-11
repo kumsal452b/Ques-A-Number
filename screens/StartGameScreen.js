@@ -7,6 +7,8 @@ import {
   Button,
   Touchable,
   TouchableOpacity,
+  TouchableWithoutFeedback,
+  Keyboard,
 } from "react-native";
 import Card from "../components/Card";
 import color from "../constant/color";
@@ -20,34 +22,47 @@ const StartGameScreen = (props) => {
     setEnteredValue(inputValue.replace(/[^0-9]/g, ""));
   };
 
+  const resetInputHandler = () => {
+    setEnteredValue("");
+  };
+
   return (
-    <View style={styles.screen}>
-      <Text style={styles.title}>The Start Game Screen</Text>
-      <Card style={styles.inputContainer}>
-        <Text>Select A Number</Text>
-        <Input
-          style={styles.input}
-          keyboardType="number-pad"
-          blurOnSubmit
-          autoCapitalize="none"
-          maxLength={2}
-          onChangeText={InputValueHandler}
-          value={enteredValue}
-        />
-        <View style={styles.buttonContainer}>
-          <View>
-            <TouchableOpacity style={styles.button}>
-              <Text style={{ color: color.primary }}>Deneme</Text>
-            </TouchableOpacity>
+    <TouchableWithoutFeedback
+      onPress={() => {
+        Keyboard.dismiss();
+      }}
+    >
+      <View style={styles.screen}>
+        <Text style={styles.title}>The Start Game Screen</Text>
+        <Card style={styles.inputContainer}>
+          <Text>Select A Number</Text>
+          <Input
+            style={styles.input}
+            keyboardType="number-pad"
+            blurOnSubmit
+            autoCapitalize="none"
+            maxLength={2}
+            onChangeText={InputValueHandler}
+            value={enteredValue}
+          />
+          <View style={styles.buttonContainer}>
+            <View>
+              <TouchableOpacity
+                style={styles.button}
+                onPress={resetInputHandler}
+              >
+                <Text style={{ color: color.primary }}>Reset</Text>
+              </TouchableOpacity>
+            </View>
+            <View>
+              <TouchableOpacity style={styles.button1}>
+                <Text style={{ color: color.accent }}>Confirm</Text>
+              </TouchableOpacity>
+            </View>
           </View>
-          <View>
-            <TouchableOpacity style={styles.button1}>
-              <Text style={{ color: color.accent }}>Deneme</Text>
-            </TouchableOpacity>
-          </View>
-        </View>
-      </Card>
-    </View>
+        </Card>
+      </View>
+    </TouchableWithoutFeedback>
   );
 };
 
