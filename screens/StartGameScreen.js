@@ -16,7 +16,9 @@ const StartGameScreen = (props) => {
   const [isActive, setIsActive] = useState(false);
   const [enteredValue, setEnteredValue] = useState("");
 
-  const InputValueHandler = (inputValue) => {};
+  const InputValueHandler = (inputValue) => {
+    setEnteredValue(inputValue);
+  };
 
   return (
     <View style={styles.screen}>
