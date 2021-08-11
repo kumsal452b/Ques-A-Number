@@ -10,27 +10,27 @@ import {
 } from "react-native";
 import Card from "../components/Card";
 import color from "../constant/color";
+import Input from "../components/Input";
+
 const StartGameScreen = (props) => {
   const [isActive, setIsActive] = useState(false);
+  const [enteredValue, setEnteredValue] = useState("");
+
   return (
     <View style={styles.screen}>
       <Text style={styles.title}>The Start Game Screen</Text>
       <Card style={styles.inputContainer}>
         <Text>Select A Number</Text>
-        <TextInput
-          value={props.value}
-          style={styles.TextInput}
-          onChangeText={props.onTextChange}
-          placeholder="Enter a number"
+        <Input
           style={styles.input}
+          keyboardType="number-pad"
+          blurOnSubmit
+          autoCapitalize="none"
+          maxLength={2}
         />
-
         <View style={styles.buttonContainer}>
           <View>
-            <TouchableOpacity
-              style={styles.button}
-              onTo={console.log("deneme")}
-            >
+            <TouchableOpacity style={styles.button}>
               <Text style={{ color: color.primary }}>Deneme</Text>
             </TouchableOpacity>
           </View>
@@ -51,12 +51,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   input: {
-    borderBottomColor: "black",
-    borderWidth: 1,
-    marginTop: 30,
     width: "95%",
-    paddingBottom: 3,
-    marginBottom: 15,
+    textAlign: "center",
   },
 
   buttonContainer: {
