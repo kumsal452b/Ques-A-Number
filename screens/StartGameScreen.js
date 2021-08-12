@@ -21,8 +21,15 @@ const StartGameScreen = (props) => {
   const [enteredValue, setEnteredValue] = useState("");
   const [confirmed, setConfirmed] = useState(false);
   const [selectedNumber, setSelectedNumber] = useState();
-  const fadeAnim = useRef(new Animated.Value(0));
-  useEffect(() => {});
+  const fadeAnim = useRef(new Animated.Value(0)).current;
+  useEffect(() => {
+    Animated.timing(fadeAnim, {
+      toValue: 1,
+      useNativeDriver: true,
+      duration: 10000,
+    }).start();
+  }, [fadeAnim]);
+
   const InputValueHandler = (inputValue) => {
     setEnteredValue(inputValue.replace(/[^0-9]/g, ""));
     setConfirmed(false);
@@ -49,10 +56,12 @@ const StartGameScreen = (props) => {
   let confirmedOutput;
   if (confirmed) {
     confirmedOutput = (
-      <Card style={styles.summaryContainer}>
-        <Text>You selected:</Text>
-        <NumberInputContainer>{selectedNumber}</NumberInputContainer>
-      </Card>
+      <Animated.View style={{ opacity: fadeAnim }}>
+        <Card style={styles.summaryContainer}>
+          <Text>You selected:</Text>
+          <NumberInputContainer>{selectedNumber}</NumberInputContainer>
+        </Card>
+      </Animated.View>
     );
   }
 
