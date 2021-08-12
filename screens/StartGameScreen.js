@@ -11,6 +11,7 @@ import {
   Keyboard,
   Alert,
   Animated,
+  Easing,
 } from "react-native";
 import Card from "../components/Card";
 import color from "../constant/color";
@@ -56,10 +57,13 @@ const StartGameScreen = (props) => {
   let confirmedOutput;
   if (confirmed) {
     confirmedOutput = (
-      <Animated.View style={{ opacity: fadeAnim }}>
+      <Animated.View style={{ opacity: 0.9 }}>
         <Card style={styles.summaryContainer}>
           <Text>You selected:</Text>
           <NumberInputContainer>{selectedNumber}</NumberInputContainer>
+          <TouchableOpacity style={styles.button}>
+            <Text>Start Game</Text>
+          </TouchableOpacity>
         </Card>
       </Animated.View>
     );
