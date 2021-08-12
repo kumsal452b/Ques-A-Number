@@ -12,7 +12,7 @@ const NumberInputContainer = (props) => {
 const styles = StyleSheet.create({
   container: {
     borderColor: color.primary,
-    borderTopWidth: 2,
+    borderWidth: 2,
     padding: 10,
     borderRadius: 10,
     marginVertical: 10,
