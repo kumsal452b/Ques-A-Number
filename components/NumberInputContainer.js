@@ -1,7 +1,7 @@
 import React from "react";
 import { Text, View, StyleSheet } from "react-native";
 import color from "../constant/color";
-const NumberInputContainer = function (props) {
+const NumberInputContainer = (props) => {
   return (
     <View style={styles.container}>
       <Text style={styles.number}>{props.children}</Text>
