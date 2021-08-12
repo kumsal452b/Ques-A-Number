@@ -10,6 +10,7 @@ import {
   TouchableWithoutFeedback,
   Keyboard,
   Alert,
+  Animated,
 } from "react-native";
 import Card from "../components/Card";
 import color from "../constant/color";
@@ -20,7 +21,8 @@ const StartGameScreen = (props) => {
   const [enteredValue, setEnteredValue] = useState("");
   const [confirmed, setConfirmed] = useState(false);
   const [selectedNumber, setSelectedNumber] = useState();
-
+  const fadeAnim = useRef(new Animated.Value(0));
+  useEffect(() => {});
   const InputValueHandler = (inputValue) => {
     setEnteredValue(inputValue.replace(/[^0-9]/g, ""));
     setConfirmed(false);
