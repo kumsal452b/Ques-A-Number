@@ -43,7 +43,6 @@ const styles = StyleSheet.create({
     justifyContent: "space-around",
     flexDirection: "row",
     marginTop: 20,
-    width: 300,
     maxWidth: "80%",
   },
   button1: {

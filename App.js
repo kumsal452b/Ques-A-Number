@@ -20,7 +20,7 @@ export default function App() {
     />
   );
   if (userNumber) {
-    content = <GameScreen />;
+    content = <GameScreen userChoice={userNumber} />;
   }
   return (
     <View style={styles.container}>
