@@ -22,7 +22,7 @@ const GameScreen = (props) => {
     <View style={styles.screen}>
       <Text>Opponent's Gues</Text>
       <NumberInputContainer>{currentGues}</NumberInputContainer>
-      <Card>
+      <Card style={styles.buttonContainer}>
         <TouchableOpacity>
           <Text>LOWER</Text>
         </TouchableOpacity>
@@ -38,6 +38,31 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     padding: 10,
+  },
+  buttonContainer: {
+    justifyContent: "space-around",
+    flexDirection: "row",
+    marginTop: 20,
+  },
+  button1: {
+    width: 100,
+    height: 40,
+    borderRadius: 10,
+    borderColor: color.accent,
+    borderWidth: 2,
+    color: color.accent,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  button: {
+    width: 100,
+    height: 40,
+    borderRadius: 10,
+    borderColor: color.primary,
+    borderWidth: 2,
+    color: color.primary,
+    alignItems: "center",
+    justifyContent: "center",
   },
 });
 export default GameScreen;
