@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Text, View, StyleSheet, TouchableOpacity } from "react-native";
+import { Text, View, StyleSheet, TouchableOpacity, Alert } from "react-native";
 import NumberInputContainer from "../components/NumberInputContainer";
 import Card from "../components/Card";
 import color from "../constant/color";
@@ -18,7 +18,16 @@ const GameScreen = (props) => {
   const [currentGues, setCurrentGues] = useState(
     generateNumberBetween(1, 100, props.userChoice)
   );
-  const nextGuesNumber = (direction) => {};
+  const nextGuesNumber = (direction) => {
+    if (
+      (direction === "lower" && currentGues < props.userChoice) ||
+      (direction === "greater" && currentGues > props.userChoice)
+    ) {
+      Alert.alert("Don't lie", "You know this is wrong...", [
+        { text: "sorry", style: "cancel" },
+      ]);
+    }
+  };
   return (
     <View style={styles.screen}>
       <Text>Opponent's Gues</Text>
