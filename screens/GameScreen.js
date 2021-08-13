@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Text, View, StyleSheet, TouchableOpacity, Alert } from "react-native";
 import NumberInputContainer from "../components/NumberInputContainer";
 import Card from "../components/Card";
@@ -7,6 +7,7 @@ const generateNumberBetween = (min, max, exclude) => {
   min = Math.ceil(min);
   max = Math.floor(max);
   const rndm = Math.floor(Math.random() * (max - min)) + min;
+
   if (rndm === exclude) {
     return generateNumberBetween(min, max, exclude);
   } else {
@@ -18,6 +19,9 @@ const GameScreen = (props) => {
   const [currentGues, setCurrentGues] = useState(
     generateNumberBetween(1, 100, props.userChoice)
   );
+  const currLow = useRef(1);
+  const currHigh = useRef(100);
+  useEffect(() => {});
   const nextGuesNumber = (direction) => {
     if (
       (direction === "lower" && currentGues < props.userChoice) ||
@@ -28,7 +32,16 @@ const GameScreen = (props) => {
       ]);
     }
     if (direction === "lower") {
+      currHigh.current = currentGues;
+    } else {
+      currLow.current = currentGues;
     }
+    const nextGues = generateNumberBetween(
+      currLow.current,
+      currHigh.current,
+      currentGues
+    );
+    setCurrentGues(nextGues);
   };
   return (
     <View style={styles.screen}>
