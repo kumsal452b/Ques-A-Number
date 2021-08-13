@@ -18,15 +18,22 @@ const GameScreen = (props) => {
   const [currentGues, setCurrentGues] = useState(
     generateNumberBetween(1, 100, props.userChoice)
   );
+  const nextGuesNumber = (direction) => {};
   return (
     <View style={styles.screen}>
       <Text>Opponent's Gues</Text>
       <NumberInputContainer>{currentGues}</NumberInputContainer>
       <Card style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.button1}>
+        <TouchableOpacity
+          style={styles.button1}
+          onPress={nextGuesNumber.bind(this, "lower")}
+        >
           <Text>LOWER</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={nextGuesNumber.bind(this, "greater")}
+        >
           <Text>GREATER</Text>
         </TouchableOpacity>
       </Card>
@@ -35,7 +42,6 @@ const GameScreen = (props) => {
 };
 const styles = StyleSheet.create({
   screen: {
-    flex: 1,
     alignItems: "center",
     padding: 10,
   },
@@ -48,19 +54,22 @@ const styles = StyleSheet.create({
   button1: {
     width: 100,
     height: 40,
-    borderRadius: 10,
+    borderBottomEndRadius: 10,
     borderColor: color.accent,
-    borderWidth: 2,
+    borderBottomWidth: 2,
+    borderRightWidth: 2,
     color: color.accent,
     alignItems: "center",
     justifyContent: "center",
+    marginRight: 10,
   },
   button: {
     width: 100,
     height: 40,
-    borderRadius: 10,
+    borderBottomStartRadius: 10,
     borderColor: color.primary,
-    borderWidth: 2,
+    borderBottomWidth: 2,
+    borderStartWidth: 2,
     color: color.primary,
     alignItems: "center",
     justifyContent: "center",
