@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Text, View, StyleSheet, TouchableOpacity, Alert } from "react-native";
 import NumberInputContainer from "../components/NumberInputContainer";
 import Card from "../components/Card";
@@ -26,6 +26,8 @@ const GameScreen = (props) => {
       Alert.alert("Don't lie", "You know this is wrong...", [
         { text: "sorry", style: "cancel" },
       ]);
+    }
+    if (direction === "lower") {
     }
   };
   return (
