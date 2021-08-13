@@ -61,7 +61,10 @@ const StartGameScreen = (props) => {
         <Card style={styles.summaryContainer}>
           <Text>You selected:</Text>
           <NumberInputContainer>{selectedNumber}</NumberInputContainer>
-          <TouchableOpacity style={styles.button}>
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => GameStartHandler(selectedNumber)}
+          >
             <Text>Start Game</Text>
           </TouchableOpacity>
         </Card>

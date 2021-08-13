@@ -7,14 +7,27 @@ import GameScreen from "./screens/GameScreen";
 export default function App() {
   const title = "Merhaba";
   const [value, onTextChange] = useState("");
+  const [userNumber, setUserNumber] = useState();
+  const startGameHandler = (selectedNumber) => {
+    setUserNumber(selectedNumber);
+  };
+
+  let content = (
+    <StartGameScreen
+      value={value}
+      onTextChange={onTextChange}
+      GameStartHandler={startGameHandler}
+    />
+  );
+  if (userNumber) {
+    content = <GameScreen />;
+  }
   return (
     <View style={styles.container}>
       <View>
         <Header title={title} />
       </View>
-      <View>
-        <StartGameScreen value={value} onTextChange={onTextChange} />
-      </View>
+      <View>{content}</View>
     </View>
   );
 }
