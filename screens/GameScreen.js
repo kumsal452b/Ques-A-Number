@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Text, View, StyleSheet, TouchableOpacity } from "react-native";
 import NumberInputContainer from "../components/NumberInputContainer";
 import Card from "../components/Card";
-
+import color from "../constant/color";
 const generateNumberBetween = (min, max, exclude) => {
   min = Math.ceil(min);
   max = Math.floor(max);
@@ -23,10 +23,10 @@ const GameScreen = (props) => {
       <Text>Opponent's Gues</Text>
       <NumberInputContainer>{currentGues}</NumberInputContainer>
       <Card style={styles.buttonContainer}>
-        <TouchableOpacity>
+        <TouchableOpacity style={styles.button1}>
           <Text>LOWER</Text>
         </TouchableOpacity>
-        <TouchableOpacity>
+        <TouchableOpacity style={styles.button}>
           <Text>GREATER</Text>
         </TouchableOpacity>
       </Card>
@@ -43,6 +43,8 @@ const styles = StyleSheet.create({
     justifyContent: "space-around",
     flexDirection: "row",
     marginTop: 20,
+    width: 300,
+    maxWidth: "80%",
   },
   button1: {
     width: 100,
