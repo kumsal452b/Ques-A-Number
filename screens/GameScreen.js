@@ -26,7 +26,7 @@ const GameScreen = (props) => {
     if (currentGues == props.userChoice) {
       props.onGameOver(round);
     }
-  });
+  }, [currentGues, props.userChoice, props.onGameOver]);
   const nextGuesNumber = (direction) => {
     if (
       (direction === "lower" && currentGues < props.userChoice) ||
