@@ -7,7 +7,7 @@ const generateNumberBetween = (min, max, exclude) => {
   min = Math.ceil(min);
   max = Math.floor(max);
   const rndm = Math.floor(Math.random() * (max - min)) + min;
-
+  console.log("Calisti");
   if (rndm === exclude) {
     return generateNumberBetween(min, max, exclude);
   } else {
@@ -30,6 +30,7 @@ const GameScreen = (props) => {
       Alert.alert("Don't lie", "You know this is wrong...", [
         { text: "sorry", style: "cancel" },
       ]);
+      return;
     }
     if (direction === "lower") {
       currHigh.current = currentGues;
