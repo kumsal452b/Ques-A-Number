@@ -11,9 +11,13 @@ export default function App() {
   const [value, onTextChange] = useState("");
   const [userNumber, setUserNumber] = useState();
   const [guesRound, setGuesRound] = useState(0);
+
+  const configureNewGameHandler = () => {
+    setGuesRound(0);
+    setUserNumber(null);
+  };
   const startGameHandler = (selectedNumber) => {
     setUserNumber(selectedNumber);
-    setGuesRound(0);
   };
   const gameOverHandler = (roundNumber) => {
     setGuesRound(roundNumber);
@@ -31,7 +35,13 @@ export default function App() {
       <GameScreen userChoice={userNumber} onGameOver={gameOverHandler} />
     );
   } else if (guesRound > 0) {
-    content = <GameOverScreen />;
+    content = (
+      <GameOverScreen
+        roundNumber={guesRound}
+        userNumber={userNumber}
+        onRestartHandler={configureNewGameHandler}
+      />
+    );
   }
   return (
     <View style={styles.container}>
