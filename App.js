@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from "react-native";
 import Header from "./components/Header";
 import StartGameScreen from "./screens/StartGameScreen";
 import GameScreen from "./screens/GameScreen";
-import GameOverScreen from "./GameOverScreen";
+import GameOverScreen from "./screens/GameOverScreen";
 
 export default function App() {
   const title = "Merhaba";
@@ -13,6 +13,7 @@ export default function App() {
   const [guesRound, setGuesRound] = useState(0);
   const startGameHandler = (selectedNumber) => {
     setUserNumber(selectedNumber);
+    setGuesRound(0);
   };
   const gameOverHandler = (roundNumber) => {
     setGuesRound(roundNumber);
@@ -25,8 +26,12 @@ export default function App() {
       GameStartHandler={startGameHandler}
     />
   );
-  if (userNumber) {
-    content = <GameScreen userChoice={userNumber} />;
+  if (userNumber && guesRound <= 0) {
+    content = (
+      <GameScreen userChoice={userNumber} onGameOver={gameOverHandler} />
+    );
+  } else if (guesRound > 0) {
+    content = <GameOverScreen />;
   }
   return (
     <View style={styles.container}>

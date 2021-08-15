@@ -19,9 +19,14 @@ const GameScreen = (props) => {
   const [currentGues, setCurrentGues] = useState(
     generateNumberBetween(1, 100, props.userChoice)
   );
+  const [round, setRound] = useState(0);
   const currLow = useRef(1);
   const currHigh = useRef(100);
-  useEffect(() => {});
+  useEffect(() => {
+    if (currentGues == props.userChoice) {
+      props.onGameOver(round);
+    }
+  });
   const nextGuesNumber = (direction) => {
     if (
       (direction === "lower" && currentGues < props.userChoice) ||
@@ -43,6 +48,7 @@ const GameScreen = (props) => {
       currentGues
     );
     setCurrentGues(nextGues);
+    setRound((currRound) => currRound + 1);
   };
   return (
     <View style={styles.screen}>
