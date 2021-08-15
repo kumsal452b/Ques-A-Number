@@ -4,12 +4,18 @@ import { StyleSheet, Text, View } from "react-native";
 import Header from "./components/Header";
 import StartGameScreen from "./screens/StartGameScreen";
 import GameScreen from "./screens/GameScreen";
+import GameOverScreen from "./GameOverScreen";
+
 export default function App() {
   const title = "Merhaba";
   const [value, onTextChange] = useState("");
   const [userNumber, setUserNumber] = useState();
+  const [guesRound, setGuesRound] = useState(0);
   const startGameHandler = (selectedNumber) => {
     setUserNumber(selectedNumber);
+  };
+  const gameOverHandler = (roundNumber) => {
+    setGuesRound(roundNumber);
   };
 
   let content = (
